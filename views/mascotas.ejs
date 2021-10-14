@@ -1,0 +1,37 @@
+<%- include('template/header', {tituloWeb: 'Página de inicio'}) %>
+
+    <div class="container">
+
+        <h1>Crud Mongodb</h1>
+
+        <a class="btn btn-success my-4" href="/mascotas/crear">Crear nueva mascota</a>
+
+        <table class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Acción</th>
+              </tr>
+            </thead>
+            <tbody>
+                <% if (arrayMascotas.length > 0) { %>
+                    <% arrayMascotas.forEach(mascota => { %>
+                        <tr>
+                            <td scope="row"><%= mascota.id %></td>
+                            <td><%= mascota.nombre %></td>
+                            <td><%= mascota.descripcion %></td>
+                            <td>
+                                <td>
+                                    <a href="mascotas/<%= mascota.id %> " class="btn btn-warning">Editar</a>
+                                </td>
+                            </td>
+                        </tr>
+                    <% }) %>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+    
+<%- include('template/footer') %> 
